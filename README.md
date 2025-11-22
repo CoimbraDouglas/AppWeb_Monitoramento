@@ -1,122 +1,133 @@
-# 🧾 Pedido Service — Monitoramento com Prometheus e Grafana
+🧾 Produto Service — Monitoramento com Prometheus e Grafana
 
-Este projeto é um **serviço de pedidos** desenvolvido com **Spring Boot 3.3.5**, integrando **Prometheus** e **Grafana** para monitoramento de métricas em tempo real.  
-O objetivo é demonstrar o uso de **Spring Boot Actuator** e **Micrometer** na exposição de métricas da aplicação.
-
----
-
-## 🚀 Tecnologias Utilizadas
-
-- **Java 17**
-- **Spring Boot 3.3.5**
-  - Spring Web
-  - Spring Boot Actuator
-- **Micrometer Prometheus**
-- **Springdoc OpenAPI (Swagger UI)**
-- **Lombok**
-- **Maven**
+Este é um projeto simples, mas bem útil, feito em Spring Boot 3.3.5, que mostra como monitorar uma aplicação usando Prometheus e Grafana.
+A ideia é basicamente: levantar um serviço de pedidos, expor as métricas dele com o Actuator, deixar o Prometheus coletar essas métricas e visualizar tudo bonitinho no Grafana.
 
 ---
 
-## ⚙️ Funcionalidades
+🚀 Tecnologias Usadas
 
-- Exposição de métricas da aplicação via `/actuator/prometheus`
-- Monitoramento de desempenho e uso de recursos (CPU, memória, threads etc.)
-- Integração com **Prometheus** e visualização via **Grafana**
-- Documentação automática da API com **Swagger UI**
-- Health check e endpoints de gerenciamento
-
----
-
-## 🧩 Arquitetura de Monitoramento
-
-| Componente  | Descrição |
-|--------------|------------|
-| **Spring Boot Actuator** | Expõe métricas e status da aplicação |
-| **Micrometer** | Coleta e padroniza as métricas |
-| **Prometheus** | Coleta e armazena as métricas |
-| **Grafana** | Visualiza e cria dashboards personalizados |
+Aqui vai o combo usado no projeto:
+Java 17
+Spring Boot 3.3.5
+Spring Web
+Spring Boot Actuator
+Micrometer + Prometheus
+Swagger UI (Springdoc OpenAPI)
+Lombok
+Maven
 
 ---
 
-## 🔧 Como Executar
+⚙️ O que o projeto faz
 
-### 1️⃣ Clonar o repositório
+Expõe métricas em /actuator/prometheus
 
-```bash
+Permite monitorar coisas como CPU, threads, memória e afins
+
+Integra direto com Prometheus e Grafana
+
+Gera documentação automática da API com Swagger
+
+Inclui health check e endpoints de gerenciamento
+
+Nada muito absurdo — mas extremamente útil para quem quer aprender monitoramento na prática.
+
+---
+
+🧩 Como funciona o monitoramento
+
+Ferramenta	Para que serve?
+Actuator	Expõe métricas e status da aplicação
+Micrometer	Organiza e padroniza as métricas
+Prometheus	Faz a coleta e armazena tudo
+Grafana	Mostra dashboards bonitinhos
+
+É quase uma corrente:
+Spring Boot → Micrometer → Prometheus → Grafana.
+
+🔧 Rodando o projeto
+1️⃣ Clonar o repositório
 git clone https://github.com/DiegoMorpheus/TrabalhoMonitoramentoPrometheusGrafana.git
 cd TrabalhoMonitoramentoPrometheusGrafana
+
+---
+
+2️⃣ Build + Run
+
 ```
-
-### 2️⃣ Compilar e executar a aplicação
-
-```bash
 mvn clean package
 mvn spring-boot:run
 ```
 
-A aplicação será iniciada em:  
-👉 **http://localhost:8080**
+Depois disso, o serviço fica disponível em:
+```
+👉 http://localhost:8080
+```
 
 ---
 
-## 📊 Endpoints Principais
-
-| Endpoint | Descrição |
-|-----------|------------|
-| `/actuator` | Lista os endpoints de monitoramento disponíveis |
-| `/actuator/health` | Verifica o status da aplicação |
-| `/actuator/prometheus` | Exposição das métricas para Prometheus |
-| `/swagger-ui.html` | Interface de documentação da API (Swagger UI) |
+📊 Endpoints Úteis
+Endpoint	O que faz
+/actuator	Lista tudo que o Actuator expõe
+/actuator/health	Diz se a aplicação está saudável
+/actuator/prometheus	Endpoint que o Prometheus coleta
+/swagger-ui.html	Documentação da API
 
 ---
 
-## 🧠 Configuração do Prometheus
+🧠 Configurar Prometheus
 
-Adicione o seguinte trecho ao seu arquivo `prometheus.yml`:
+No seu prometheus.yml, coloque algo assim:
 
-```yaml
 scrape_configs:
   - job_name: 'pedido-service'
     metrics_path: '/actuator/prometheus'
     static_configs:
       - targets: ['host.docker.internal:8080']
-```
 
-> 💡 Altere o `target` de acordo com o endereço da sua aplicação.
 
----
-
-## 📈 Configuração do Grafana
-
-1. Acesse o Grafana em `http://localhost:3000`
-2. Vá até **Connections > Data Sources > Add data source**
-3. Escolha **Prometheus** e configure a URL (ex: `http://localhost:9090`)
-4. Crie um **Dashboard**
-5. Adicione gráficos com métricas como:
-   - `http_server_requests_seconds_count`
-   - `jvm_memory_used_bytes`
-   - `process_cpu_usage`
-   - `system_cpu_usage`
+⚠️ Se você estiver rodando fora de Docker, pode alterar o target para localhost:8080.
 
 ---
 
-## 🧰 Dependências Principais
+📈 Configurar Grafana
 
-| Dependência | Descrição |
-|--------------|------------|
-| `spring-boot-starter-web` | Criação de APIs REST |
-| `spring-boot-starter-actuator` | Métricas e monitoramento |
-| `micrometer-registry-prometheus` | Exportação das métricas para Prometheus |
-| `springdoc-openapi-starter-webmvc-ui` | Documentação da API (Swagger) |
-| `lombok` | Simplificação do código Java |
-| `spring-boot-starter-test` | Testes automatizados |
+Abra o Grafana: http://localhost:3000
+
+Vá em Connections > Data Sources > Add data source
+
+Escolha Prometheus
+
+Coloque a URL (geralmente http://localhost:9090)
+
+Crie seu dashboard e adicione gráficos com métricas como:
+
+http_server_requests_seconds_count
+
+jvm_memory_used_bytes
+
+process_cpu_usage
+
+system_cpu_usage
 
 ---
 
-## 📦 Estrutura Básica do Projeto
+🧰 Dependências principais
 
-```
+Dependência	Para quê?
+
+spring-boot-starter-web	API REST
+spring-boot-starter-actuator	Métricas e monitoramento
+micrometer-registry-prometheus	Exportar métricas
+springdoc-openapi-starter-webmvc-ui	Swagger
+lombok	Evita boilerplate
+spring-boot-starter-test	Testes
+
+---
+
+📦 Estrutura do projeto
+
 pedido-service/
  ├── src/
  │   ├── main/
@@ -125,42 +136,14 @@ pedido-service/
  │   └── test/
  ├── pom.xml
  └── README.md
-```
+
 
 ---
 
-## 👨‍💻 Autor
+👨‍💻 Autor
 
-**Diego Oliveira**  
-📦 Repositório: [TrabalhoMonitoramentoPrometheusGrafana](https://github.com/DiegoMorpheus/TrabalhoMonitoramentoPrometheusGrafana)
+Douglas Coimbra
 
----
-
-## 🖼️ Visão Geral da Arquitetura
-
-```
-+-------------------+
-| Pedido Service    |
-| (Spring Boot)     |
-+-------------------+
-          |
-          v
-+-------------------+
-| Micrometer        |
-| (Métricas)        |
-+-------------------+
-          |
-          v
-+-------------------+
-| Prometheus        |
-| (Coleta & Armaz.) |
-+-------------------+
-          |
-          v
-+-------------------+
-| Grafana           |
-| (Dashboards)      |
-+-------------------+
-```
-
+Repositório:
+👉 https://github.com/CoimbraDouglas/AppWeb_Monitoramento
 
