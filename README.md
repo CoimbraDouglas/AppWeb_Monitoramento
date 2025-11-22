@@ -8,13 +8,21 @@ A ideia é basicamente: levantar um serviço de pedidos, expor as métricas dele
 🚀 Tecnologias Usadas
 
 Aqui vai o combo usado no projeto:
+
 Java 17
+
 Spring Boot 3.3.5
+
 Spring Web
+
 Spring Boot Actuator
+
 Micrometer + Prometheus
+
 Swagger UI (Springdoc OpenAPI)
+
 Lombok
+
 Maven
 
 ---
@@ -38,18 +46,28 @@ Nada muito absurdo — mas extremamente útil para quem quer aprender monitorame
 🧩 Como funciona o monitoramento
 
 Ferramenta	Para que serve?
+
 Actuator	Expõe métricas e status da aplicação
+
 Micrometer	Organiza e padroniza as métricas
+
 Prometheus	Faz a coleta e armazena tudo
+
 Grafana	Mostra dashboards bonitinhos
 
 É quase uma corrente:
 Spring Boot → Micrometer → Prometheus → Grafana.
 
+---
+
 🔧 Rodando o projeto
+
 1️⃣ Clonar o repositório
-git clone https://github.com/DiegoMorpheus/TrabalhoMonitoramentoPrometheusGrafana.git
-cd TrabalhoMonitoramentoPrometheusGrafana
+
+```
+git clone https://github.com/CoimbraDouglas/AppWeb_Monitoramento
+cd AppWeb_Monitoramento
+```
 
 ---
 
@@ -68,10 +86,15 @@ Depois disso, o serviço fica disponível em:
 ---
 
 📊 Endpoints Úteis
+
 Endpoint	O que faz
+
 /actuator	Lista tudo que o Actuator expõe
+
 /actuator/health	Diz se a aplicação está saudável
+
 /actuator/prometheus	Endpoint que o Prometheus coleta
+
 /swagger-ui.html	Documentação da API
 
 ---
@@ -80,12 +103,13 @@ Endpoint	O que faz
 
 No seu prometheus.yml, coloque algo assim:
 
+```
 scrape_configs:
   - job_name: 'pedido-service'
     metrics_path: '/actuator/prometheus'
     static_configs:
       - targets: ['host.docker.internal:8080']
-
+```
 
 ⚠️ Se você estiver rodando fora de Docker, pode alterar o target para localhost:8080.
 
@@ -146,4 +170,5 @@ Douglas Coimbra
 
 Repositório:
 👉 https://github.com/CoimbraDouglas/AppWeb_Monitoramento
+
 
