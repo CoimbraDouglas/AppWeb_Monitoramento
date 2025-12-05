@@ -1,4 +1,4 @@
-#🧾 Produto Service — Monitoramento com Prometheus e Grafana #
+##🧾 Produto Service — Monitoramento com Prometheus e Grafana ##
 
 Este é um projeto simples, mas bem útil, feito em Spring Boot 3.3.5, que mostra como monitorar uma aplicação usando Prometheus e Grafana.
 A ideia é basicamente: levantar um serviço de pedidos, expor as métricas dele com o Actuator, deixar o Prometheus coletar essas métricas e visualizar tudo bonitinho no Grafana.
@@ -170,6 +170,7 @@ Douglas Coimbra
 
 Repositório:
 👉 https://github.com/CoimbraDouglas/AppWeb_Monitoramento
+
 
 
 
