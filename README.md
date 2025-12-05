@@ -152,6 +152,7 @@ spring-boot-starter-test	Testes
 
 📦 Estrutura do projeto
 
+```
 pedido-service/
  ├── src/
  │   ├── main/
@@ -160,7 +161,7 @@ pedido-service/
  │   └── test/
  ├── pom.xml
  └── README.md
-
+```
 
 ---
 
@@ -170,8 +171,3 @@ Douglas Coimbra
 
 Repositório:
 👉 https://github.com/CoimbraDouglas/AppWeb_Monitoramento
-
-
-
-
-
