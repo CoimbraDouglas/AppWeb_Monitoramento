@@ -3,6 +3,8 @@
 Este é um projeto simples, mas bem útil, feito em Spring Boot 3.3.5, que mostra como monitorar uma aplicação usando Prometheus e Grafana.
 A ideia é basicamente: levantar um serviço de pedidos, expor as métricas dele com o Actuator, deixar o Prometheus coletar essas métricas e visualizar tudo bonitinho no Grafana.
 
+📚 **Disciplina:** Arquitetura de Aplicacoes Web 👨‍🏫 **Professor:** Leonardo Vieira Guimarãe 🏫 **Instituição:** Centro Universitário Newton Paiva ✍️ **Aluno:** Douglas Coimbra Laass.
+
 ---
 
 🚀 Tecnologias Usadas
@@ -142,10 +144,15 @@ system_cpu_usage
 Dependência	Para quê?
 
 spring-boot-starter-web	API REST
+
 spring-boot-starter-actuator	Métricas e monitoramento
+
 micrometer-registry-prometheus	Exportar métricas
+
 springdoc-openapi-starter-webmvc-ui	Swagger
+
 lombok	Evita boilerplate
+
 spring-boot-starter-test	Testes
 
 ---
@@ -171,3 +178,4 @@ Douglas Coimbra
 
 Repositório:
 👉 https://github.com/CoimbraDouglas/AppWeb_Monitoramento
+
