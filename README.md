@@ -11,21 +11,21 @@ A ideia é basicamente: levantar um serviço de pedidos, expor as métricas dele
 
 Aqui vai o combo usado no projeto:
 
-Java 17
+* Java 17
 
-Spring Boot 3.3.5
+* Spring Boot 3.3.5
 
-Spring Web
+* Spring Web
 
-Spring Boot Actuator
+* Spring Boot Actuator
 
-Micrometer + Prometheus
+* Micrometer + Prometheus
 
-Swagger UI (Springdoc OpenAPI)
+* Swagger UI (Springdoc OpenAPI)
 
-Lombok
+* Lombok
 
-Maven
+* Maven
 
 ---
 
@@ -35,9 +35,9 @@ Expõe métricas em /actuator/prometheus
 
 Permite monitorar coisas como CPU, threads, memória e afins
 
-Integra direto com Prometheus e Grafana
+Integra direto com `Prometheus` e `Grafana`
 
-Gera documentação automática da API com Swagger
+Gera documentação automática da API com `Swagger`
 
 Inclui health check e endpoints de gerenciamento
 
@@ -47,17 +47,18 @@ Nada muito absurdo — mas extremamente útil para quem quer aprender monitorame
 
 🧩 Como funciona o monitoramento
 
-Ferramenta	Para que serve?
+Ferramentas | Para que servem?
 
-Actuator	Expõe métricas e status da aplicação
+`Actuator`	Expõe métricas e status da aplicação
 
-Micrometer	Organiza e padroniza as métricas
+`Micrometer`	Organiza e padroniza as métricas
 
-Prometheus	Faz a coleta e armazena tudo
+`Prometheus`	Faz a coleta e armazena tudo
 
-Grafana	Mostra dashboards bonitinhos
+`Grafana`	Mostra dashboards bonitinhos
 
 É quase uma corrente:
+
 Spring Boot → Micrometer → Prometheus → Grafana.
 
 ---
@@ -129,13 +130,13 @@ Coloque a URL (geralmente http://localhost:9090)
 
 Crie seu dashboard e adicione gráficos com métricas como:
 
-http_server_requests_seconds_count
+* http_server_requests_seconds_count
 
-jvm_memory_used_bytes
+* jvm_memory_used_bytes
 
-process_cpu_usage
+* process_cpu_usage
 
-system_cpu_usage
+* system_cpu_usage
 
 ---
 
@@ -143,17 +144,17 @@ system_cpu_usage
 
 Dependência	Para quê?
 
-spring-boot-starter-web	API REST
+spring-boot-starter-web	`API REST`
 
-spring-boot-starter-actuator	Métricas e monitoramento
+spring-boot-starter-actuator	`Métricas e monitoramento`
 
-micrometer-registry-prometheus	Exportar métricas
+micrometer-registry-prometheus	`Exportar métricas`
 
-springdoc-openapi-starter-webmvc-ui	Swagger
+springdoc-openapi-starter-webmvc-ui	`Swagger`
 
-lombok	Evita boilerplate
+lombok	`Evita boilerplate e agiliza o código`
 
-spring-boot-starter-test	Testes
+spring-boot-starter-test	`Testes`
 
 ---
 
@@ -178,4 +179,5 @@ Douglas Coimbra
 
 Repositório:
 👉 https://github.com/CoimbraDouglas/AppWeb_Monitoramento
+
 
