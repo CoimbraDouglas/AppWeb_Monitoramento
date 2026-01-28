@@ -1,4 +1,4 @@
-## 🧾 Produto Service — Monitoramento com Prometheus e Grafana ##
+# 🧾 Produto Service — Monitoramento com Prometheus e Grafana
 
 Este é um projeto simples, mas bem útil, feito em Spring Boot 3.3.5, que mostra como monitorar uma aplicação usando Prometheus e Grafana.
 A ideia é basicamente: levantar um serviço de pedidos, expor as métricas dele com o Actuator, deixar o Prometheus coletar essas métricas e visualizar tudo bonitinho no Grafana.
@@ -7,7 +7,7 @@ A ideia é basicamente: levantar um serviço de pedidos, expor as métricas dele
 
 ---
 
-🚀 Tecnologias Usadas
+## 🚀 Tecnologias Usadas
 
 Aqui vai o combo usado no projeto:
 
@@ -29,7 +29,7 @@ Aqui vai o combo usado no projeto:
 
 ---
 
-⚙️ O que o projeto faz
+## ⚙️ O que o projeto faz?
 
 Expõe métricas em /actuator/prometheus
 
@@ -45,7 +45,7 @@ Nada muito absurdo — mas extremamente útil para quem quer aprender monitorame
 
 ---
 
-🧩 Como funciona o monitoramento
+## 🧩 Como funciona o monitoramento?
 
 Ferramentas | Para que servem?
 
@@ -63,9 +63,9 @@ Spring Boot → Micrometer → Prometheus → Grafana.
 
 ---
 
-🔧 Rodando o projeto
+## 🔧 Rodando o projeto
 
-1️⃣ Clonar o repositório
+### 1️⃣ Clonar o repositório
 
 ```
 git clone https://github.com/CoimbraDouglas/AppWeb_Monitoramento
@@ -74,7 +74,7 @@ cd AppWeb_Monitoramento
 
 ---
 
-2️⃣ Build + Run
+### 2️⃣ Build + Run
 
 ```
 mvn clean package
@@ -88,7 +88,7 @@ Depois disso, o serviço fica disponível em:
 
 ---
 
-📊 Endpoints Úteis
+## 📊 Endpoints Úteis
 
 Endpoint	O que faz
 
@@ -102,7 +102,7 @@ Endpoint	O que faz
 
 ---
 
-🧠 Configurar Prometheus
+## 🧠 Configurar Prometheus
 
 No seu prometheus.yml, coloque algo assim:
 
@@ -118,7 +118,7 @@ scrape_configs:
 
 ---
 
-📈 Configurar Grafana
+## 📈 Configurar Grafana
 
 Abra o Grafana: http://localhost:3000
 
@@ -140,25 +140,23 @@ Crie seu dashboard e adicione gráficos com métricas como:
 
 ---
 
-🧰 Dependências principais
+## 🧰 Dependências principais
 
-Dependência	Para quê?
+* spring-boot-starter-web	`API REST`
 
-spring-boot-starter-web	`API REST`
+* spring-boot-starter-actuator	`Métricas e monitoramento`
 
-spring-boot-starter-actuator	`Métricas e monitoramento`
+* micrometer-registry-prometheus	`Exportar métricas`
 
-micrometer-registry-prometheus	`Exportar métricas`
+* springdoc-openapi-starter-webmvc-ui	`Swagger`
 
-springdoc-openapi-starter-webmvc-ui	`Swagger`
+* lombok	`Evita boilerplate e agiliza o código`
 
-lombok	`Evita boilerplate e agiliza o código`
-
-spring-boot-starter-test	`Testes`
+* spring-boot-starter-test	`Testes`
 
 ---
 
-📦 Estrutura do projeto
+## 📦 Estrutura do projeto
 
 ```
 pedido-service/
@@ -173,11 +171,12 @@ pedido-service/
 
 ---
 
-👨‍💻 Autor
+## 👨‍💻 Autor
 
 Douglas Coimbra
 
 Repositório:
 👉 https://github.com/CoimbraDouglas/AppWeb_Monitoramento
+
 
 
