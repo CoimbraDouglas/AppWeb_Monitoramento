@@ -171,12 +171,13 @@ pedido-service/
 
 ---
 
-## 👨‍💻 Autor
+## 👨‍💻 Autor do Projeto
 
 Douglas Coimbra
 
 Repositório:
 👉 https://github.com/CoimbraDouglas/AppWeb_Monitoramento
+
 
 
 
